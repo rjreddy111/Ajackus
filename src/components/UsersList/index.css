@@ -1,0 +1,63 @@
+.edit-button {
+    background-color: rgb(27, 116, 27);
+    width: 70px;
+    height: 30px;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+}
+
+.edit-button-small {
+   display: none;
+}
+.button-delete-small {
+    display: none;
+}
+
+.button-delete {
+    display: block;
+        background-color: rgb(227, 6, 6);
+        color: #ffffff;
+        height: 30px;
+        width: 80px;
+        border-radius: 5px;
+        border: none;
+        margin-right: 15px;
+    
+}
+
+@media screen and (max-width:460px) {
+    .edit-button-small {
+        display: block;
+     
+        width: 40px;
+        height: 20px;
+        border: none;
+        color: hsl(0, 0%, 100%);
+        border-radius: 5px;
+        color: rgb(27, 116, 27);
+        background-color: transparent;
+    }
+    .edit-button {
+        display: none;
+    }
+    .button-delete {
+        display: none;
+    }
+    .button-delete-small {
+        display: block;
+      
+        color: #ffffff;
+        height: 20px;
+        width: 40px;
+        border-radius: 5px;
+        border: none;
+        margin-right: 15px;
+        color: rgb(227, 6, 6);
+        background-color: transparent;
+        
+    
+    }
+    
+    
+}

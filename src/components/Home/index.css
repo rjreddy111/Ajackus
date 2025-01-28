@@ -1,0 +1,261 @@
+.header-bg-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-bg-container {
+    display: flex;
+    height: 8vh;
+    flex-direction: row;
+    background-color: grey;
+    background-size: cover;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+   
+    
+
+}
+.search-container {
+    display: flex;
+    height: 40px;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    color: #ffffff;
+   
+    
+}
+
+
+.add-user-button {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 35px;
+    width: 100px;
+    color: #ffffff;
+}
+.dashbiard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+
+@media screen and (max-width:400px) {
+    .dashbiard {
+        font-size: 15px;
+    }
+    .search-container {
+        height: 25px;
+    }
+    .add-user-button {
+        height: 30px;
+        width: 70px;
+        font-size: 10px;
+    }
+    .menu-controler {
+        font-size: 12px;
+    }
+    
+}
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+.input-style {
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    
+
+}
+.input-style::placeholder{
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.table-background {
+    width: 100%;
+    padding: 10px;
+    height: 70vh;
+    overflow-x: auto;
+    overflow-y: auto;
+    table-layout: fixed;
+}
+
+@media screen and (max-width:400px) { 
+    .table-background{
+        width: 90%;
+        
+    }
+    .input-style::placeholder {
+        font-size: 8px;
+    }
+    
+}
+
+.table-show {
+    width: 98%;
+   border-collapse: separate;
+    border: 2px solid #0addf6;
+    box-shadow: 2px 2px 2px 3px #9fd3da;
+    border-radius: 8px;
+    border-spacing: 0;
+    overflow: hidden;
+    
+}
+
+@media screen and (max-width:460px) {
+    .table-show {
+        width: 98%;
+        min-width: 380px;
+        overflow-x: auto;
+    }
+    
+}
+
+.table-show th ,.table-show td {
+    border-bottom: 1px solid grey;
+    text-align: left;
+    height: 40px;
+    padding: 5px;
+   
+}
+
+
+
+
+.table-show th { 
+    text-align: left;
+}
+
+.id-class {
+    width: 5% ;
+
+}
+.firs-name {
+    width: 15%;
+    margin-left: 15px;
+   
+}
+.email {
+    width: 25%;
+    text-align: left;
+}
+.department {
+    width: 25%;
+}
+.actions {
+    width:25%;
+    vertical-align: center;
+    text-align: center;
+    width: auto;
+    
+}
+
+
+@media screen and (max-width:460px) {
+    .id-class {
+        font-size: 12px;
+    }
+    .firs-name {
+        font-size: 12px;
+    }
+    .email {
+        font-size: 12px;
+       
+    }
+    .department {
+        font-size: 12px;
+    }
+    .actions {
+        font-size: 12px;
+        width: 20%;
+        text-align: center;
+
+        
+       
+    }
+
+    
+    
+    
+    
+}
+
+.header-action {
+    
+}
+
+
+.table-show th {
+    border-bottom: 2px solid grey;
+}
+
+
+.modal-layout {
+    position:fixed;
+    top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  animation: slideIn 0.4s ease;
+
+}
+
+@media screen and (max-width:460px) { 
+    .modal-content {
+        max-width: 420px;
+        width: 80%;
+    }
+    
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+      }
+      to {
+        background-color: rgba(0, 0, 0, 0.5);
+      }    
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(0px);
+
+    }
+    
+}
