@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+
 import {Menu,Search,CircleUserRound} from "lucide-react"
 import UserForm from "../UserForm";
 
@@ -28,6 +29,9 @@ class Home extends Component {
     componentDidMount(){
         this.getUsers()
     }
+
+
+    //fetching the users from the link
 
     getUsers = async()=> {
         try {
@@ -73,11 +77,13 @@ class Home extends Component {
     navigateToForm = ()=> {
         this.setState({showModal:true , isEditing:false,
             form: {
-                id:"", firstName:"", lastName:"", email:"", department:""
+                id:"", firstName:"", lastName:"", email:"", department:"",successMessage:""
             }
         })
 
     }
+
+ //handling deleteing of user
 
     handleDeleteUser = async(id)=> {
         const {users} = this.state 
@@ -87,7 +93,15 @@ class Home extends Component {
             }); 
             if (!response.ok) throw new Error ("Failed To Delete User")
             this.setState ({
-        users: users.filter((user)=> user.id!==id)}) 
+        users: users.filter((user)=> user.id!==id), 
+        successMessage:"Selected User has been deleted successfully"
+    } , 
+    ()=> {
+        setTimeout(()=> {
+            this.setState({successMessage:""})
+        },2000)
+    }
+) 
 
 
 
@@ -104,6 +118,7 @@ class Home extends Component {
     }
 
     handleFormSubmit =async(form,isEditing)=> {
+        this.setState({ successMessage: "" })
         if (isEditing) {
             this.handleEditUser(form)
         }
@@ -113,7 +128,7 @@ class Home extends Component {
 
     }
 
-
+ //Hadnling editing User//
     handleEditUser = async(form) => {
         const {users} = this.state 
         try {
@@ -144,7 +159,7 @@ class Home extends Component {
             const updatedData = users.map((eachUser)=> (
                 eachUser.id===id ? {
                 ...eachUser,firstName ,lastName,email,department } : eachUser ));
-                this.setState({users: updatedData, isEditing:false, showModal:false   })
+                this.setState({users: updatedData, isEditing:false, showModal:false , successMessage:"User details has been updated"  })
 
         }
         catch (error) {
@@ -173,15 +188,22 @@ class Home extends Component {
             }); 
             if (!response.ok)  throw new Error ('failed to add user') ; 
             const data  = await response.json()
+         
             this.setState({
                 users: [...this.state.users, {
-                    ...data, firstName,lastName,email,department
+                    ...data,
+                    
+                    firstName,lastName,email,department
                 }], 
                 isEditing: false,
                 showModal:false , 
                 successMessage: "User added successfully!",
             
-            })
+            } 
+            
+
+        
+        )
             
         }
         catch(error) {
@@ -192,12 +214,12 @@ class Home extends Component {
 
     onCloseModal = ()=> {
         
-        this.setState({showModal:false})
+        this.setState({showModal:false,successMessage:""})
     }
 
     render(){
 
-        const {users,form,isEditing,showModal,searchText} = this.state 
+        const {users,form,isEditing,showModal,searchText,successMessage} = this.state 
         console.log(isEditing)
         console.log(users)
 
@@ -216,6 +238,10 @@ class Home extends Component {
 
                 </div>
 
+                {successMessage && (
+                <div className="message-success"> {successMessage} </div>
+            )}
+
                 <div className="table-background">
                     <table className="table-show">
                         <thead>
@@ -228,12 +254,17 @@ class Home extends Component {
                                 <th className="actions " colSpan={2}>Actions</th>
                             </tr>
                         </thead>
+
+                        {/*data passing to UserList */}
                         <tbody>
                             {filteredData.map((eachUser)=> (
-                                <UsersList key = {eachUser.id} details = {eachUser} form={form} onEditedUser ={this.onEditUser} onDeleteUser={this.handleDeleteUser} />
+                                <UsersList key = {eachUser.id} details = {eachUser} form={form} onEditedUser ={this.onEditUser} 
+                                onDeleteUser={this.handleDeleteUser} />
                             ))}
                         </tbody>
                     </table> 
+
+                    {/*Based on condition am showing modal */}
                     {showModal? ( 
                         <div className="modal-layout">
                             <div className="modal-content">

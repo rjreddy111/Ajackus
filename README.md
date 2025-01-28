@@ -1,4 +1,27 @@
+# How to run the Project 
+
+1. Run command "npm install" it will install all dependecies 
+2. Run command "npm start" it will start the server 
+
+# Difficulties Faced During the Assessment 
+1. Some alignment issues in the table header for displaying the output 
+2. Need additional time for better responsive design 
+
+# Functionalities Added: 
+1. we can edit user, delete,post 
+2. Implemented search bar for filtering users based on first name 
+3. Implemented modal box for user updates and addition of new user feature
+
+
+# Deployed Link: 
+    "https://ajackus-nu.vercel.app/"
+
+
+**********************************************************************************************************
 # Getting Started with Create React App
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
